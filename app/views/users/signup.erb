@@ -1,0 +1,22 @@
+
+
+<%= erb :'partial/_errors' %>
+
+<div class="login">
+  <h1> Sign up to see more relevant questions on Hash Overwhelm.</h1>
+
+  <form action="/users" method="post">
+    <label for="name">Display Name</label>
+    <input id="name" type="text" name="user[username]" placeholder="J. Doe">
+    <br>
+    <label for="email">Email</label>
+    <input id="email" type="email" name="user[email]" placeholder="you@example.org">
+    <br>
+    <label for="password">Password</label>
+    <input id="password" type="password" name="user[password]" placeholder="********">
+    <a href="">forgot?</a>
+    <input id="button" type="submit" value="Sign up">
+    <p>By registering, you agree to the > <a href="">privacy policy</a> and <a href="">terms of service</a><p>.</p>
+  </form>
+
+</div>

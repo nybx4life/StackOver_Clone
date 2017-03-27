@@ -1,0 +1,18 @@
+<div  class="question-filter">
+  <% @questions.each do |question| %>
+    <tr>
+      <td>
+        <img src="/images/q-bubble.png" alt="Question">
+      </td>
+      <td>
+        <div id="vote-count"><%= question.votes.count %></div>
+      </td>
+      <td id="post-content">
+        <a href="/questions/<%=question.id%>"><%= question.title %></a>
+      </td>
+      <td class="grey-text" id="post-date">
+        <%= question.created_at.strftime("%b, %d '%y") %>
+      </td>
+    </tr>
+  <% end %>
+</div>

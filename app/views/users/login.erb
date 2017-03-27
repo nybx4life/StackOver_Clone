@@ -1,0 +1,18 @@
+
+
+<%= erb :'partial/_errors' %>
+
+<div class="login">
+  <h1> Hash Overwhelm is not part of the Stack Exchange network. Deal with it.</h1>
+
+  <form action="/users/login" method="post">
+    <label for="email">Email</label>
+    <input id="email" type="email" name="user[email]" placeholder="you@example.org">
+    <br>
+    <label for="password">Password</label>
+    <input id="password" type="password" name="user[password]" placeholder="********">
+    <a href="">forgot?</a>
+    <input id="button" type="submit" value="Login">
+  </form>
+
+</div>

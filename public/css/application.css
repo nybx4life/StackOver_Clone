@@ -1,0 +1,122 @@
+
+div{
+  width: 100%;
+}
+table{
+  width: 100%;
+}
+
+#question-list{
+  width: 75%;
+  margin: auto;
+
+}
+
+#navbar{
+  height: 100px;
+  vertical-align: bottom;
+}
+
+.homepage-little-words{
+  font-size: .6em;
+}
+
+.homepage-list-numbers{
+  width: 20%;
+  text-align: center;
+}
+.homepage-list-author{
+  text-align: right;
+}
+
+.homepage-list-title{
+  padding-left: 10px;
+}
+
+.post-container{
+  width: 100%;
+  font-size: 1em;
+}
+.container {
+    width: 1000px;
+    margin: auto
+}
+
+.vote-form{
+  width: 100%;
+}
+.vote-column {
+  width: 60px;
+  margin:auto;
+}
+.vote-comment-column {
+  width: 30px;
+  margin:auto;
+}
+.vote-button {
+  width: 100%;
+  font: arial;
+  background-color: rgba(0,0,0,0);
+  color: #c0c0c0;
+  border: none;
+}
+.vote-count{
+  width: 100%;
+  text-align: center;
+}
+.comment_author .p-author{
+  font-size: 8px;
+}
+.hidden {
+  display: none;
+}
+
+.answer {
+}
+
+.question {
+}
+
+.comment {
+  width: 100%;
+  font-size: .8em;
+}
+
+#post-metrics {
+  vertical-align: right;
+  padding-left: 500px;
+  width: 50%;
+
+}
+
+.metrics-label {
+  align: right;
+  border: 1px;
+}
+
+#post-date {
+  text-align: right;
+}
+
+.grey-text {
+  color: #989898;
+}
+
+#vote-count {
+  text-align: center;
+  background-color: #5fba7d;
+  color: #FFF;
+  margin: 3px;
+}
+
+#user-posts {
+  padding: 50px;
+}
+
+#post-content {
+  padding-left: 20px
+}
+
+.post-filters {
+  padding-left: 800px;
+}

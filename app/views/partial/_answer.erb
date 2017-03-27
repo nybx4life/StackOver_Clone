@@ -1,0 +1,8 @@
+<button id="answer-button" >Answer this question</button>
+<div id="answer-submission-form">
+  <form id="answer-form" class="hidden" action="/questions/<%=@question.id%>/answers" method="post">
+    <textarea id="answer-text-box" name="answer[description]"></textarea>
+    <input type="submit" value="Post your answer">
+    <input type="hidden" name="answer[question_id]" value="<%=@question.id%>">
+  </form>
+</div>

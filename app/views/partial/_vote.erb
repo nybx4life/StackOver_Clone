@@ -1,0 +1,8 @@
+<form class="vote-form" name="vote" action="/question/<%=post.id%>/vote" method="post">
+  <button class="vote-button"  name="up_down" value="1" >▲</button>
+
+  <div class="vote-count">
+    <label><%=post.vote_count%></label>
+  </div>
+  <button class="vote-button" name="up_down" value="-1">▼</button>
+</form>

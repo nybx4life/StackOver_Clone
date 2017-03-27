@@ -1,0 +1,51 @@
+<div class="post-container <%=post_type.to_s%>">
+  <table>
+    <tr>
+      <td class='vote-column'>
+        <%= erb :'partial/_vote', locals: {post: post} %>
+      </td>
+      <td>
+        <div class="description"><%=post.description%></div>
+        <div class="p-author"><a href="/users/<%=post.user.id%>"><%= post.user.username %></a></div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      </td>
+      <td>
+        <div class="comments-list">
+          <% post.comments.each do |comment| %>
+            <%= erb :'partial/_comment', locals: {comment: comment}%>
+          <%end%>
+
+        </div>
+
+        <button class="comment-button">Post a comment</button>
+
+        <div class="comment-submission-container hidden">
+
+          <% if post_type == :question %>
+            <form class="comment-box" action="/questions/comments" method="post">
+          <% else %>
+            <form class="comment-box" action="/questions/answers/comments" method="post">
+          <% end %>
+            <input type="hidden" name="comment[commentable_id]"value="<%= post.id %>">
+            <input type="hidden" name="comment[commentable_type]"value="<%= post.class.to_s %>">
+            <textarea name="comment[description]"></textarea>
+            <input type="submit" value="Post your answer">
+          </form>
+        </div>
+      </td>
+    </tr>
+
+  </table>
+  <%if logged_in?%>
+    <%if post.user_id == current_user_id.id %>
+     <a href="/questions/<%=post.id%>/edit">Edit this question</a>
+     <form class="question-deletion" action="/questions/<%=post.user.id%>" method="post">
+      <input type="hidden" name="_method" value="delete">
+      <input type="submit" value="Delete This Question">
+     </form>
+    <% end %>
+  <%end%>
+</div>

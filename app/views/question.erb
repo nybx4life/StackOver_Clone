@@ -1,0 +1,27 @@
+
+
+<div id="question_container">
+<div class="question-title"><h1> <%=@question.title%></h1></div>
+<%= erb :'partial/_post', locals:{post: @question, post_type: :question} %>
+</div>
+
+<div id="answers-list">
+  <% @question.answers.each do |answer| %>
+    <%= erb :'partial/_post', locals:{post: answer, post_type: :answer, question_id: @question.id}%>
+  <%end%>
+</div>
+
+<%if logged_in?%>
+  <%if @question.user_id == current_user_id %>
+   <a href="/questions/<%=@question.id%>/edit">Edit this question</a>
+   <form class="question-deleteion" action="/questions/<%=@question.id%>" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="Delete This Question">
+   </form>
+  <% end %>
+  <div id="answer-form-container">
+  <%=erb :'partial/_answer' %>
+  </div>
+<%end%>
+
+

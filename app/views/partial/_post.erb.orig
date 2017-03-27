@@ -1,0 +1,85 @@
+<<<<<<< HEAD
+<div class="post_container <%=post_type.to_s%>">
+  <form name="vote" action="submit_vote">
+    <button name="upvotebutton" >Upboat</button>
+    <label class="number_of_votes"><%=post.vote_count%></label>
+    <button name="downvotebutton">downboat</button>
+  </form>
+
+  <div class="description"><%=post.description%></div>
+  <div class="q-author"><%= post.user.id%></div>
+
+  <div class="comments-list">
+    <% post.comments.each do |comment| %>
+      <%= erb :'partial/_comment', locals: {comment: comment}%>
+    <%end%>
+  </div>
+
+  <% if post_type == :question %>
+    <a href="/questions/<%=post.id%>/comment/new">
+  <% else %>
+    <a href="/questions/<%=question_id%>/answer/<%=post.id%>/comment/new">
+  <% end %>
+  Post a comment</a>
+
+  <div class="comment-submission-container hidden">
+
+    <% if post_type == :question %>
+      <form id="comment-submission-form" action="/questions/<%=post.id%>/comment" method="post">
+    <% else %>
+      <form id="comment-submission-form" action="/questions/<%=question_id%>/comment<%=post.id%>" method="post">
+    <% end %>
+      <textarea name="comment[body]"></textarea>
+      <input type="submit" value="Post your answer">
+    </form>
+  </div>
+=======
+
+<div class="post-container <%=post_type.to_s%>">
+  <table>
+    <tr>
+      <td class='vote-column'>
+        <%= erb :'partial/_vote', locals: {post: post} %>
+      </td>
+      <td>
+        <div class="description"><%=post.description%></div>
+        <div class="p-author"><%= post.user.username %></div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      </td>
+      <td>
+        <div class="comments-list">
+
+
+          <% post.comments.each do |comment| %>
+            <%= erb :'partial/_comment', locals: {comment: comment}%>
+          <%end%>
+
+        </div>
+
+        <% if post_type == :question %>
+          <a href="/questions/<%=post.id%>/comment/new">
+        <% else %>
+          <a href="/questions/<%=question_id%>/answer/<%=post.id%>/comment/new">
+        <% end %>
+        Post a comment</a>
+
+        <div class="comment-submission-container hidden">
+
+          <% if post_type == :question %>
+            <form id="comment-submission-form" action="/questions/<%=post.id%>/comment" method="post">
+          <% else %>
+            <form id="comment-submission-form" action="/questions/<%=question_id%>/comment<%=post.id%>" method="post">
+          <% end %>
+            <textarea name="comment[body]"></textarea>
+            <input type="submit" value="Post your answer">
+          </form>
+        </div>
+      </td>
+    </tr>
+  </table>
+>>>>>>> 3ceb6b08df201f8321c9291533ee542b24e86a2a
+
+</div>

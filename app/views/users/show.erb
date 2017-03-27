@@ -1,0 +1,64 @@
+
+<div class="user-profile">
+
+  <h2 id="username"><%= @user.username %></h2>
+  <div id="post-metrics" cols="100" rows="2">
+    <table class="metrics-label">
+      <tr>
+        <td>
+          <h3>Answers:</h3>
+          <%= @user.answers.count %>
+        </td>
+        <td>
+          <h3>Questions:</h3>
+          <%= @user.questions.count %>
+        </td>
+        <td>
+          <h3>People Reached:</h3>
+          <%= @user.people_reached %>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="posts">
+    <h3 id="top-posts">Top Posts <span class="grey-text">(<%= @user.answers.count %>)</h3>
+    <!-- <span class="post-filters">
+      <a href=".all-filter" class="all-filter">All</a>
+      <a href=".questions-filter" class="questions-filter">Questions</a>
+      <a href=".answers-filter" class="answers-filter">Answers</a>
+    </span> -->
+    <table id="user-posts">
+      <div class="all-filter">
+        <% @questions_answers.each do |question_answer| %>
+          <tr>
+            <td>
+              <% if question_answer.class == Question %>
+                <img src="/images/q-bubble.png" alt="Question">
+              <% else %>
+                <img src="/images/a-bubble.png" alt="Answer">
+            <% end %>
+            </td>
+            <td>
+              <div id="vote-count"><%= question_answer.votes.count %></div>
+            </td>
+            <td id="post-content">
+              <% if question_answer.class == Question %>
+                <a href="/questions/<%=question_answer.id%>"><%= question_answer.title %></a>
+              <% else %>
+                <a href="/questions/<%=question_answer.question.id%>"><%= question_answer.question.title %></a>
+              <% end %>
+            </td>
+            <td class="grey-text" id="post-date">
+              <%= question_answer.created_at.strftime("%b, %d '%y") %>
+            </td>
+          </tr>
+        <% end %>
+      </div>
+
+
+    </table>
+  </div>
+
+
+</div>

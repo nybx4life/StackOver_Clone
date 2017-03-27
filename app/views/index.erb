@@ -1,0 +1,50 @@
+
+<div id="question-list">
+<table>
+<% @questions.each do |q| %>
+  <div class="list-entry">
+  <tr>
+    <td class="homepage-list-numbers">
+      <table>
+        <tr>
+          <td>
+            <%= q.vote_count %>
+          </td>
+          <td>
+            <%= q.answer_count %>
+          </td>
+        </tr>
+        <tr class="homepage-little-words">
+          <td>
+            votes
+          </td>
+          <td>
+            answers
+          </td>
+        </tr>
+      </table>
+
+    </td>
+
+    <td class="homepage-list-title">
+      <a href="/questions/<%=q.id%>"><%= q.title %></a>
+    </td>
+  </tr>
+  <tr>
+    <td class="homepage-list-author" colspan="2">
+      asked <%=  get_time_ago(q.created_at) %> by <a href="/users/<%=q.user.id%>"><%= q.user.username %></a>
+    </td>
+  </tr>
+
+
+  </div>
+<% end %>
+
+<% if logged_in? %>
+  <a href="/questions/new">Create Your Question</a>
+<% end %>
+
+</table>
+
+
+</div>
